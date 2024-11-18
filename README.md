@@ -15,7 +15,7 @@ This is work in progress. If you have additional scripts that may be useful in p
     4. For post-processing, you may also need remote execution on server. 
         To setup password-less SSH from Windows to Linux, see README-ssh_windows_linux below
 
-+ See [README-ssh_windows_linux.md](README-ssh_windows_linux.md) for detailed instructions
++ [README-ssh_windows_linux.md](README-ssh_windows_linux.md) to setup password-less SSH from Windows to Linux
   
 ## Features
 

@@ -31,6 +31,8 @@ This is work in progress. If you have additional scripts that may be useful in p
 In example above where post-acquisition will occur, ensure script exists (Matlab or python).  
 This step should include any formatting/analysis required after acquisition as well as meta-data extraction into NWB recordings files (Excel/csv)
 
+Example bash script for launching server-side scripts: post-acquisition/post-acquire.sh
+
 ## Features
 
 - Nightly transfer of data from acquisition computer to local storage computer

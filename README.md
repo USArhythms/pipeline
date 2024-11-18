@@ -13,9 +13,10 @@ This is work in progress. If you have additional scripts that may be useful in p
     3b. Verify which parsing script will be run before/after transfer (currently parse_widefield.m)
     3c. Edit (text editor) launch.bat script to run correct parsing command, as appropriate
     4. For post-processing, you may also need remote execution on server. 
-        To setup password-less SSH from Windows to Linux, see **README-ssh_windows_linux** below
+        To setup password-less SSH from Windows to Linux, see README-ssh_windows_linux below
 
 + See [README-ssh_windows_linux.md](README-ssh_windows_linux.md) for detailed instructions
+  
 ## Features
 
 ---

@@ -6,20 +6,32 @@ This is work in progress. If you have additional scripts that may be useful in p
 
 ## Windows acquisition computer (Widefield @ UCSD) scripts:
 
-    1. github clone https://github.com/USArhythms/pipeline.git [on local storage such as C:\experiments_nwb]
-    2. Install [SyncBackPro] (https://www.2brightsparks.com/syncback/sbpro.html) and load data_sync.sps settings in application
-    3. Modify settings in SyncBackPro for backup, e-mail notification destination, and location of local data acquisition directories
-    3a. Ensure local server where files will be stored has correct permissions and is mapped in Windows
-    3b. Verify which parsing script will be run before/after transfer (currently parse_widefield.m)
-    3c. Edit (text editor) launch.bat script to run correct parsing command, as appropriate
-    4. For post-processing, you may also need remote execution on server. 
-        To setup password-less SSH from Windows to Linux, see README-ssh_windows_linux below
+1. GitHub clone [USArhythms pipeline](https://github.com/USArhythms/pipeline.git) to a local directory (e.g., `C:\experiments_nwb`).
+2. Install [SyncBackPro](https://www.2brightsparks.com/syncback/sbpro.html) and load the `data_sync.sps` settings in the application.
+3. Modify settings in SyncBackPro for:
+   - Backup configuration
+   - Email notification destination
+   - Location of local data acquisition directories
+
+   a. Ensure the local server where files will be stored has correct permissions and is mapped in Windows.
+
+   b. Verify which parsing script will be run before/after transfer.
+
+   c. Edit (using a text editor) `launch.bat` or `launch_remote.bat` to run the correct parsing command, as appropriate.
+      - **Note**: `launch.bat` example runs a MATLAB script on the acquisition computer.
+      - **N.B.** `launch_remote.bat` runs `trigger.py` (see additional notes in [README-trigger.md](README-trigger.md)).
+
+
 
 + [README-ssh_windows_linux.md](README-ssh_windows_linux.md) to setup password-less SSH from Windows to Linux
   
-## Features
 
----
+## Post-acquisition server (linux):
+
+In example above where post-acquisition will occur, ensure script exists (Matlab or python).  
+This step should include any formatting/analysis required after acquisition as well as meta-data extraction into NWB recordings files (Excel/csv)
+
+## Features
 
 - Nightly transfer of data from acquisition computer to local storage computer
 - Email notification of transferred files
@@ -28,15 +40,11 @@ This is work in progress. If you have additional scripts that may be useful in p
 
 ## Contribute
 
----
-
 [Issue Tracker] (https://github.com/USArhythms/pipeline/issues)
 
 [Source Code] (https://github.com/USArhythms/pipeline)
 
 ## Support
-
----
 
 If you are having issues or questions; or have code to contribute, please let me know.
 Duane Rinehart
@@ -44,8 +52,7 @@ drinehart[at]ucsd.edu
 
 ## License
 
----
 The project is licensed under the [MIT license](https://mit-license.org/).
 
 ---
-Last update: 17-OCT-2024
+Last update: 18-NOV-2024

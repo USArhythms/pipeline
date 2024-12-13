@@ -1,6 +1,10 @@
 # **Pipeline processing supplemental - Remote launch script for post-acquisition processing**
 
-trigger.py calls remote script on server [where post-acquisition will occur]
+THIS SCRIPT REQUIRES PREREQUISITES AND MAY INVOLVE MORE WORK THAN POWERSHELL REMOTE PROCEDURE CALL (RPC).
+
+IN ADDITION, THE CRYPTOGRAPHY LIBRARIES MAY NOT BE INSTALLED ON WINDOWS 7 AND BELOW
+
+trigger.py calls remote script on server [where post-acquisition processing will occur]
 
 On acquisition computer, ensure python v3 is installed with pre-requisites:
 

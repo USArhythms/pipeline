@@ -1,0 +1,1 @@
+Powershell.exe -executionpolicy remotesigned -File  C:\experiments_nwb\trigger.ps1

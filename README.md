@@ -19,7 +19,8 @@ This is work in progress. If you have additional scripts that may be useful in p
 
    c. Edit (using a text editor) `launch.bat` or `launch_remote.bat` to run the correct parsing command, as appropriate.
       - **Note**: `launch.bat` example runs a MATLAB script on the acquisition computer.
-      - **N.B.** `launch_remote.bat` runs `trigger.py` (see additional notes in [README-trigger.md](README-trigger.md)).
+      - **N.B.** `launch_remote_py.bat` runs `trigger.py` (see additional notes in [README-trigger.md](README-trigger.md)).
+      - **N.B.2** `launch_remote_ps.bat` runs `trigger.ps1` (see additional notes in [README-trigger_ps.md](README-trigger_ps.md)).
 
 
 
@@ -57,4 +58,4 @@ drinehart[at]ucsd.edu
 The project is licensed under the [MIT license](https://mit-license.org/).
 
 ---
-Last update: 18-NOV-2024
+Last update: 13-DEC-2024

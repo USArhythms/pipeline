@@ -9,8 +9,10 @@ On Windows 8.1 and above ssh should be installed be default however you may need
 App Download & Instructions: https://github.com/PowerShell/Win32-OpenSSH/releases
 
 User will need to modify the following variables in trigger.ps1:
-host='obis.dk.ucsd.edu'
-user='afassihizakeri'
+
+**host='obis.dk.ucsd.edu'**
+
+**user='afassihizakeri'**
 
 Edit line (below) to run bash script on remote host:
 

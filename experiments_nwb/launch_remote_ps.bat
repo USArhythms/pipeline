@@ -1,1 +1,1 @@
-Powershell.exe -executionpolicy remotesigned -File  C:\experiments_nwb\trigger.ps1
+start "" Powershell.exe -ExecutionPolicy RemoteSigned -File "C:\experiments_nwb\trigger.ps1"

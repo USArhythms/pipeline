@@ -1,23 +1,30 @@
-# **Neurodata pipeline processing scripts**
+# **Neurodata backup and launch scripts**
 
-***Scripts*** may be installed on instrumentation/acquisition computers for regular/systematic backups to local server.  They are also useful for subsequent processing (such as submission to cluster for calculations, NWB conversion prep)
+The files in **backup-scripts** are intended to be installed on instrumentation/acquisition computers for regular/systematic backups to a local or remote server. They are also useful for subsequent processing, such as submission to a computing cluster, NWB conversion prep (see **post-acquisition** and **experiments_nwb** folders).  
 
 This is work in progress. If you have additional scripts that may be useful in processing (automatic calculations, file transfer, etc), and wish to share with U19 consortium, please contact: drinehart@ucsd.edu.
 
 ## Windows acquisition computer (Widefield @ UCSD) scripts:
 
-1. GitHub clone [USArhythms pipeline](https://github.com/USArhythms/pipeline.git) to a local directory (e.g., `C:\experiments_nwb`).
-2. Install [SyncBackPro](https://www.2brightsparks.com/syncback/sbpro.html) and load the `data_sync.sps` settings in the application.
-3. Modify settings in SyncBackPro for:
+1. GitHub clone [TBD](https://github.com/update_this.git) to a local directory (e.g., `C:\Data\Backups`).
+2. Install [SyncBackPro](https://www.2brightsparks.com/syncback/sbpro.html)
+3. Setup configuration in SyncBackPro:
+   * If the server is is mapped in Windows or accessible via a network share (i.e., a "local" server), then load the `data_sync.sps` settings in the application. 
+   Export/Import menu > Import Profile > Select `data_sync.sps` file from the cloned repository.  
+   If asked about allowing empty passwords, select "No" to avoid security issues.  
+   Then right click on the profile in SyncBackPro and select "Modify" to modify the settings for:
    - Backup configuration
    - Email notification destination
    - Location of local data acquisition directories
 
-   a. Ensure the local server where files will be stored has correct permissions and is mapped in Windows.
+   * If the remote server is a sftp server, then -- right now create a new profile manually ...
+   Managed to connnect using my SSH key with FTP Engines Eldos, DevArt or Chilkat, but not WeOnlyDo, whatever that is. The difference betweeen engines is not documented. 
 
-   b. Verify which parsing script will be run before/after transfer.
+   * Ensure the server where files will be stored has correct permissions for the user account that will be used to transfer files.
 
-   c. Edit (using a text editor) `launch.bat` or `launch_remote.bat` to run the correct parsing command, as appropriate.
+   * Verify which parsing script will be run before/after transfer.
+
+   * Edit (using a text editor) `launch.bat` or `launch_remote.bat` to run the correct parsing command, as appropriate.
       - **Note**: `launch.bat` example runs a MATLAB script on the acquisition computer.
       - **N.B.** `launch_remote_py.bat` runs `trigger.py` (see additional notes in [README-trigger.md](README-trigger.md)).
       - **N.B.2** `launch_remote_ps.bat` runs `trigger.ps1` (see additional notes in [README-trigger_ps.md](README-trigger_ps.md)).

@@ -1,1 +1,0 @@
-"C:\Program Files\MATLAB\R2019a\bin\matlab.exe" -nosplash -nodesktop -r "run('C:\experiments_nwb\parse_widefield.m'); exit;"

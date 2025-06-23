@@ -13,7 +13,7 @@ Requirements:
 #>
 
 # Source the script to test (dot-sourcing makes functions available in this scope)
-. (Join-Path -Path $PSScriptRoot -ChildPath '..\experiments_nwb\trigger.ps1')
+. (Join-Path -Path $PSScriptRoot -ChildPath '..\processing\Remote\trigger.ps1')
 
 # Define test functions
 function Test-GetAcquisitionHostInfo {
@@ -45,9 +45,8 @@ function Test-GetAcquisitionHostInfo {
 function Test-InvokeRemoteTriggerMock {
     Write-Host "Testing Invoke-RemoteTrigger with mocked SSH..."
       # Use a different approach to mock Invoke-Expression
-    try {
-        # Store the original script content to be restored later
-        $originalScriptContent = Get-Content -Path (Join-Path -Path $PSScriptRoot -ChildPath '..\experiments_nwb\trigger.ps1') -Raw
+    try {        # Store the original script content to be restored later
+        $originalScriptContent = Get-Content -Path (Join-Path -Path $PSScriptRoot -ChildPath '..\processing\Remote\trigger.ps1') -Raw
         
         # Create a modified version of the script with our mock
         $mockScript = $originalScriptContent -replace 'Invoke-Expression \$sshCommand', 'if ($sshCommand -like "*ssh*" -and $sshCommand -like "*--host*" -and $sshCommand -like "*--ip*") { "Mocked SSH output - Success" } else { throw "Mock SSH command failed validation" }'
@@ -85,9 +84,8 @@ function Test-InvokeRemoteTriggerMock {
         if (Test-Path $tempScriptPath) {
             Remove-Item -Path $tempScriptPath -Force
         }
-        
-        # Re-source the original script
-        . (Join-Path -Path $PSScriptRoot -ChildPath '..\experiments_nwb\trigger.ps1')
+          # Re-source the original script
+        . (Join-Path -Path $PSScriptRoot -ChildPath '..\processing\Remote\trigger.ps1')
     }
 }
 

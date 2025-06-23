@@ -75,14 +75,13 @@ class TestTrigger(unittest.TestCase):
     
     @mock.patch('socket.gethostname', return_value='acqhost')
     @mock.patch('socket.gethostbyname', return_value='1.2.3.4')    
-    
     def test_trigger_invocation(self, mock_gethostbyname, mock_gethostname):
         """Test that the trigger function works correctly"""
         # Reload the module to ensure our dummy paramiko is used
-        module_key = 'experiments_nwb.trigger'
+        module_key = 'processing.Remote.trigger'
         if module_key in sys.modules:
             del sys.modules[module_key]
-        trigger_path = Path(__file__).resolve().parents[1] / 'experiments_nwb' / 'trigger.py'
+        trigger_path = Path(__file__).resolve().parents[1] / 'processing' / 'Remote' / 'trigger.py'
         spec = importlib.util.spec_from_file_location(module_key, trigger_path)
         trigger = importlib.util.module_from_spec(spec)
         sys.modules[module_key] = trigger
@@ -123,17 +122,16 @@ class TestTrigger(unittest.TestCase):
             self.assertEqual(std_err, '')
         finally:
             # Restore the original SSHClient class
-            trigger.paramiko.SSHClient = original_ssh_client
-
+            trigger.paramiko.SSHClient = original_ssh_client    
     def test_get_args(self):
         """Test that argument parsing works correctly"""
         import os
         
         # Import the trigger module
-        module_key = 'experiments_nwb.trigger'
+        module_key = 'processing.Remote.trigger'
         if module_key in sys.modules:
             del sys.modules[module_key]
-        trigger_path = Path(__file__).resolve().parents[1] / 'experiments_nwb' / 'trigger.py'
+        trigger_path = Path(__file__).resolve().parents[1] / 'processing' / 'Remote' / 'trigger.py'
         spec = importlib.util.spec_from_file_location(module_key, trigger_path)
         trigger_module = importlib.util.module_from_spec(spec)
         sys.modules[module_key] = trigger_module
@@ -159,17 +157,16 @@ class TestTrigger(unittest.TestCase):
                 args = trigger_module.get_args()
                 self.assertEqual(args.host, 'envhost')
                 self.assertEqual(args.user, 'envuser')
-                self.assertEqual(args.script, 'envscript')
-
+                self.assertEqual(args.script, 'envscript')    
     @mock.patch('socket.gethostname', return_value='acqhost')
     @mock.patch('socket.gethostbyname', return_value='1.2.3.4')
     def test_main_function(self, mock_gethostbyname, mock_gethostname):
         """Test that the main function works correctly"""
         # Reload the module to ensure our dummy paramiko is used
-        module_key = 'experiments_nwb.trigger'
+        module_key = 'processing.Remote.trigger'
         if module_key in sys.modules:
             del sys.modules[module_key]
-        trigger_path = Path(__file__).resolve().parents[1] / 'experiments_nwb' / 'trigger.py'
+        trigger_path = Path(__file__).resolve().parents[1] / 'processing' / 'Remote' / 'trigger.py'
         spec = importlib.util.spec_from_file_location(module_key, trigger_path)
         trigger_module = importlib.util.module_from_spec(spec)
         sys.modules[module_key] = trigger_module
